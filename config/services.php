@@ -1,0 +1,61 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Third Party Services
+    |--------------------------------------------------------------------------
+    |
+    | This file is for storing the credentials for third party services such
+    | as Mailgun, Postmark, AWS and more. This file provides the de facto
+    | location for this type of information, allowing packages to have
+    | a conventional file to locate the various service credentials.
+    |
+    */
+
+    'postmark' => [
+        'key' => env('POSTMARK_API_KEY'),
+    ],
+
+    'resend' => [
+        'key' => env('RESEND_API_KEY'),
+    ],
+
+    'ses' => [
+        'key' => env('AWS_ACCESS_KEY_ID'),
+        'secret' => env('AWS_SECRET_ACCESS_KEY'),
+        'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+    ],
+
+    'slack' => [
+        'notifications' => [
+            'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
+            'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
+        ],
+    ],
+
+    'sales_ai' => [
+        'provider' => env('SALES_AI_PROVIDER', 'openai'),
+        'verify_ssl' => env('SALES_AI_VERIFY_SSL', true),
+
+        'openai' => [
+            'api_key' => env('OPENAI_API_KEY'),
+            'model' => env('OPENAI_MODEL', 'gpt-4.1-mini'),
+        ],
+
+        'openrouter' => [
+            'api_key' => env('OPENROUTER_API_KEY'),
+            'model' => env('OPENROUTER_MODEL', 'openrouter/auto'),
+            'fallback_models' => env('OPENROUTER_FALLBACK_MODELS', 'google/gemma-2-9b-it:free,meta-llama/llama-3.1-8b-instruct:free'),
+            'base_url' => env('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1'),
+        ],
+
+        'gemini' => [
+            'api_key' => env('GEMINI_API_KEY'),
+            'model' => env('GEMINI_MODEL', 'gemini-2.0-flash'),
+            'fallback_models' => env('GEMINI_FALLBACK_MODELS', 'gemini-1.5-flash'),
+        ],
+    ],
+
+];
